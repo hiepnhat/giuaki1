@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8" />
+        <title>Đăng ký</title>
+        <meta name="keywords" content="" />
+        <style>
+        h1 {
+            text-align: center;
+        }
+
+        form li {
+            list-style: none;
+            margin-bottom: 5px;
+        }
+
+        form ul li label {
+            float: left;
+            clear: left;
+            width: 100px;
+            text-align: right;
+            margin-right: 10px;
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            font-size: 14px;
+        }
+
+        form ul li input,
+        select,
+        span {
+            float: left;
+            margin-bottom: 10px;
+        }
+
+        form textarea {
+            float: left;
+            width: 350px;
+            height: 150px;
+        }
+
+        [type="submit"] {
+            clear: center;
+            margin: 20px 0 0 230px;
+            font-size: 18px
+            
+        }
+
+        p {
+            text-align: center;
+        }
+        
+        
+    </style>
+    </head>
+
+    <body>
+        <h1>Đăng ký</h1>
+        <p>Hãy điền form bên dưới</p>
+        <form name='registration' onSubmit="return formValidation()" method="post">
+            <ul>
+                <li><label for="name">Tên</label></li>
+                <li><input type="text" name="name" size="12" /></li>
+                <li><label for="birth">Ngày sinh</label></li>
+                <li><input type="date" name="birth" size="12" /></li>
+                <li><label for="sex">Giới tính:</label></li>
+                <li><select name="sex">
+                        <option selected="" value="Default">(Chọn giới tính)</option>
+                        <option value="ml">Nam</option>
+                        <option value="fml">Nữ</option>
+                        <option value="secr">Bí mật</option>
+                    </select></li>
+                <li><label type="text" name="pN">Số điện thoại:</label></li>
+                <li><input type="text" name="pN" size="50" /></li>
+                <li><label for="address">Địa chỉ:</label></li>
+                <li><input type="text" name="address" size="50" /></li>
+                <li><label for="pW">Mật khẩu:</label></li>
+                <li><input type="password" name="pW" size="50" /></li>                
+                <li><label for="vlpW">Xác nhận mật khẩu:</label></li>
+                <li><input type="password" name="vlpW" size="50" /></li>
+                <li><label for="email">Email:</label></li>
+                <li><input type="text" name="email" size="50" /></li>
+                <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+                <input type="checkbox" id="rule1" name="rule1" value="term">
+                <label for="rule1">Vui lòng chọn nếu bạn không muốn nhận thêm tin tức về Pizza
+                        Hut</label><br>
+                <input type="checkbox" id="rule2" name="rule2" value="term">
+                <label for="rule2">Vui lòng chọn nếu bạn không muốn nhận thêm tin tức về các sản
+                        phẩm và thiết bị của các đói tác kinh doanh của bạn</label><br>
+                <input type="checkbox" id="rule3" name="rule3" value="term">
+                <label for="rule3">Tôi đồng ý với điều khoản sử dụng và hiểu rằng thông tin của
+                        tôi sẽ được sử dụng như được mô tả trên trang này và chính sách bảo mật của
+                        Pizza Hut</label><br>
+                <li><input type="submit" value="Tiếp theo" name="Submit"></li>
+
+            </ul>
+        </form>
+        <script>
+        function formValidation() {
+            var Name = document.forms["registration"]["name"];
+            var Birth = document.forms["registration"]["birth"];
+            var Sex = document.forms["registration"]["sex"];
+            var PN = document.forms["registration"]["pN"];
+            var passW = document.forms["registration"]["pW"];
+            var validpW = document.forms["registration"]["vlpW"];
+            var Address = document.forms["registration"]["address"];
+            var Email = document.forms["registration"]["email"];
+      
+            if (Name.value == "") {
+                window.alert("Hãy nhập tên của bạn.");
+                Name.focus();
+                return false;
+            }
+      
+            if (Birth.value == "") {
+                window.alert("Hãy nhập ngày tháng năm sinh.");
+                Birth.focus();
+                return false;
+            }
+      
+            if (Sex.value == "") {
+                window.alert(
+                  "Hãy chọn giới tính.");
+                  Sex.focus();
+                return false;
+            }
+      
+            if (PN.value == "") {
+                window.alert(
+                  "Hãy nhập số điện thoại.");
+                  PN.focus();
+                return false;
+            }
+      
+            if (passW.value == "") {
+                window.alert("Hãy nhập mật khẩu.");
+                passW.focus();
+                return false;
+            }
+      
+            if (validpW.value != passW.value) {
+                alert("Mật khẩu không trùng.");
+                validpW.focus();
+                return false;
+            }
+            if (Address.value == "") {
+                window.alert("Nhập địa chỉ của bạn.");
+                Address.focus();
+                return false;
+            }
+            if (Email.value == "") {
+                window.alert("Hãy nhập địa chỉ mail của bạn.");
+                Email.focus();
+                return false;
+            }
+            return true;
+        }
+    </script>
+    </body>
+
+</html>
